@@ -1,0 +1,26 @@
+require(readxl)
+library(readxl)
+Intake <- read_excel("Intake+Questionnaire+for+MK+Honors+Thesis_December+3,+2019_12.02.xlsx")
+Daily <- read_excel("Daily+Questionnaire+for+MK+Honors+Thesis_December+3,+2019_11.54.xlsx")
+i <- Intake2[-1,] # renaming and parsing factor labels
+Intake2 <- as.data.frame(unclass(Intake))
+Daily2 <- as.data.frame(unclass(Daily))
+i <- Intake2[-1,] # renaming and parsing factor labels
+d <- Daily2[-1,] # renaming and parsing factor labels
+d_drop <- d[!is.na(d$Q17),] # removing NA values
+#d_main <- subset(d_drop, select = -c(Q17)) # instance matrixes
+d_main <- d_drop[,19:79] # parse metadata
+d_label <- d_drop[,79] # label vector
+View(Daily)
+View(d_main)
+d_main$Q11_3
+d_main$Q12_1
+d_main$Q12_2
+d_main$Q12_3
+d_main$Q12_4
+d_main$Q12_5
+d_main$Q12_6
+d_main$Q13_1
+d_main$Q13_2
+d_main$Q13_3
+d_main$Q13_4
